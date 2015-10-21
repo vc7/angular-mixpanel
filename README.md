@@ -57,6 +57,12 @@ angular.module('myApp').controller('MyCtrl', function ($scope, $mixpanel) {
 });
 ```
 
+If you want to clean up mixpanel's cookie, like logout.
+
+```javascript
+$mixpanel.cookie.clear();
+```
+
 Issues or feature requests
 --------------------------
 
