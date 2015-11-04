@@ -10,17 +10,17 @@
 
 /**
  * Wraps the mixpanel JavaScript global to make it injectable and aid in testing.
- * Requires an injectable mixpanelApiKey to be present. This can be easily done
+ * Requires an injectable mixpanelToken to be present. This can be easily done
  * by configuring the module like so:
  *
  *    angular.module('analytics.mixpanel')
  *        .config(['$mixpanelProvider', function($mixpanelProvider) {
- *            $mixpanelProvider.setApiKey('<the key>');
+ *            $mixpanelProvider.setToken('<the token>');
  *        }]);
  */
 angular.module('analytics.mixpanel', [])
     .provider('$mixpanel', function () {
-        var apiKey, superProperties;
+        var token, superProperties;
 
         /**
          * Init the mixpanel global
@@ -30,7 +30,7 @@ angular.module('analytics.mixpanel', [])
                 throw 'Global `mixpanel` not available. Did you forget to include the library on the page?';
             }
             
-            mixpanel.init(apiKey);            
+            mixpanel.init(token);            
 
             waitTillAsyncApiLoaded(function () {
                 if (superProperties) mixpanel.register(superProperties);
@@ -75,14 +75,14 @@ angular.module('analytics.mixpanel', [])
         }
 
         /**
-         * Get or set the Mixpanel API key. This can be done via a provider config.
+         * Get or set the Mixpanel API token. This can be done via a provider config.
          *
-         * @param key your Mixpanel API key
+         * @param newToken your Mixpanel API token
          */
-        this.apiKey = function (key) {
-            if (!key) return apiKey;
+        this.token = function (newToken) {
+            if (!newToken) return token;
 
-            apiKey = key;
+            token = newToken;
         };
 
         /**

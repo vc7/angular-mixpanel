@@ -29,11 +29,11 @@ describe('Provider: $mixpanelProvider', function () {
     }));
 
     it('should set the API key', function () {
-        var apiKey = 'abcd1234';
+        var token = 'abcd1234';
 
-        $mixpanel.apiKey(apiKey);
+        $mixpanel.token(token);
 
-        expect($mixpanel.apiKey()).toBe(apiKey);
+        expect($mixpanel.token()).toBe(token);
     });
 
     it('should set super properties', function () {

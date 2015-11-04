@@ -26,12 +26,12 @@ First add the dependency to your app:
 angular.module('myApp', ['analytics.mixpanel']);
 ```
 
-Minimally you'll need to configure your API key like so:
+Minimally you'll need to configure your API token like so:
 
 ```javascript
  angular.module('analytics.mixpanel')
         .config(['$mixpanelProvider', function($mixpanelProvider) {
-            $mixpanelProvider.apiKey('<your project token>'); // your token is different than your API key
+            $mixpanelProvider.token('<your project token>'); // your token is different than your API key
         }]);
 ```
 
@@ -40,7 +40,7 @@ You can also supply [super properties](https://mixpanel.com/help/reference/javas
 ```javascript
  angular.module('analytics.mixpanel')
         .config(['$mixpanelProvider', function($mixpanelProvider) {
-            $mixpanelProvider.apiKey('<your project token>'); // your token is different than your API key
+            $mixpanelProvider.token('<your project token>'); // your token is different than your API key
 
             $mixpanelProvider.superProperties({
                 someProp: true,
