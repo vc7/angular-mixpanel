@@ -127,6 +127,9 @@ angular.module('analytics.mixpanel', [])
                     track_charge: callMixpanelFn('people.track_charge'),
                     clear_charges: callMixpanelFn('people.clear_charges'),
                     delete_user: callMixpanelFn('people.delete_user')
+                },
+                cookie: {
+                    clear: callMixpanelFn('cookie.clear')
                 }
             };
         };
